@@ -22,20 +22,47 @@ int Factorial(int numero)
 		return resultado;
 	}
 }
-
+void Fibonaci(int cantidadNumeros)
+{
+	if (cantidadNumeros > 0)
+	{
+		int anterior = 1;
+		int actual = 1;
+		int siguiente;
+		if (cantidadNumeros == 1)
+		{
+			cout << "1" << endl;
+		}
+		else if (cantidadNumeros == 2)
+		{
+			cout << "1 - 1" << endl;
+		}
+		else
+		{
+			cout << "1 - 1";
+			for (int i = 2; i < cantidadNumeros; i++)
+			{
+				siguiente = anterior + actual;
+				anterior = actual;
+				actual = siguiente;
+				cout << " - " << actual;
+			}
+			cout << endl;
+		}
+	}
+	else
+	{
+		cout << "No puedo procesar negativos" << endl;
+	}
+}
 int main()
 {
-	int cantidadVeces;
-	int numero;
-	cout << "Indique la cantidad de factoriales que desea calcular: " << endl;
-	cin >> cantidadVeces;
-	for (int j = 0; j < cantidadVeces; j++)
-	{
-		cout << "Ingrese el número: " << endl;
-		cin >> numero;		
-		cout << "El factorial de " << numero << " es " << Factorial(numero) << endl;
-	}	
+	int cantidadNumeros;
+	cout << "Ingrese la cantidad de numeros a generar: ";
+	cin >> cantidadNumeros;
+	Fibonaci(cantidadNumeros);
 }
+
 //EN GITHUB
 //Tarea:
 //Entrada: mi programa debe recibir la cantidad de numero fibonacis a generar
